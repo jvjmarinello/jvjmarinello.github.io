@@ -16,8 +16,8 @@
     --marginSection: 60px;
     --marginSubSection: 40px;
     --marginParagraph: 15px;
-    --maxContainerNarrowWidth: 1200px;
-    --maxContainerWideWidth: 1200px;
+    --containerNarrow: 900px;
+    --containerWide: 1200px;
     --maxParagraphWidth: 768px;
 }
 
@@ -34,21 +34,11 @@ body {
     font-size: var(--fz-sm);
     background-color: var(--background1);
     color: var(--text1);
+    line-height:1.5;
 }
 
 h1, h2, h3, h4, h5 {
     font-weight: 500;
-    line-height:1.5;
-}
-
-li {
-    line-height: 1.5;
-}
-
-p {
-    font-size: var(--fz-lg);
-    font-weight: 100;
-    line-height: 1.5;
 }
 
 hr {
@@ -109,26 +99,16 @@ hr {
 /* ----------------------------------------------------------------- */
 
 /* SECTION GENERAL */
-.container-fluid {
-    height:min-content; /* ensure each container is big enough for content */
-    padding-top: 60px; /* prevents toolbars from overlapping with section's content */
-    padding-bottom: 60px;
-}
-
 .section {
     min-height: 100vh; /* ensure each container takes at least the full page */
     padding-left: 5%;
     padding-right: 5%;
 }
 
-.section-wide {
-    padding-left: 15%;
-    padding-right: 15%;
-}
-
-.section-narrow {
-    padding-left: 15%;
-    padding-right: 15%;
+.container-fluid {
+    height:min-content; /* ensure each container is big enough for content */
+    padding: var(--marginSection) 0;
+    max-width: var(--containerWide); /* by default all containers are wide */
 }
 
 .section-dark{
@@ -169,7 +149,7 @@ hr {
     justify-content: center;
     margin: 0 auto 0;
     min-height: 90vh;
-    max-width: var(--maxContainerWideWidth);
+    max-width: var(--containerWide);/* allow intro section to be centered and aligned with the rest */
 }
 
 .intro-first-block {
@@ -187,45 +167,41 @@ hr {
 #intro h2, h3 {
     font-size: 50px;
 }
+
 /* ----------------------------------------------------------------- */
 
 /* ABOUT ME */
-#aboutme .container-fluid{
-    max-width: var(--maxContainerNarrowWidth);
+#aboutme .container-fluid {
+    max-width: var(--containerNarrow);
 }
 
 .aboutme-grid {
     display: grid;
-    grid-template-columns: 70% 30%;
+    grid-template-columns: 61% 39%;
     gap: 50px;
+}
+
+.aboutme-right {
+    width: 300px;
+}
+
+#aboutme p {  
+    text-align: justify;
 }
 
 /* ----------------------------------------------------------------- */
 
 /* SKILLS */
-#skills .container-fluid{
-    max-width: var(--maxContainerWideWidth);
-}
-
-#skills .section-title {
-    text-align: left;
+#skills {
+    min-height: fit-content; 
 }
 
 .skills-grid {
     display: grid;
-    grid-template-columns: 2fr 5fr;
-    gap: 80px;
+    grid-template-columns: 2fr 2fr;
+    gap: 180px;
     height: 100%;
     position: relative;
-}
-
-.skills-left-side {
-    padding-right: 0%;
-    min-width: 300px;
-}
-
-.skills-right-side {
-    max-width: 900px;
 }
 
 .skill {
@@ -237,9 +213,29 @@ hr {
     font-size: 0px;
     margin-right: 0%;
 }
+/* ----------------------------------------------------------------- */
 
-.section-education-header {
-    display: none;
+/* EDUCATION */
+#education {
+    min-height: fit-content; 
+}
+
+#education .container-fluid {
+    max-width: var(--containerNarrow);
+}
+/* ----------------------------------------------------------------- */
+
+/* Section Resume */
+#resume .container-fluid {
+    max-width: var(--containerNarrow);
+}
+
+#resume .section-title {
+    text-align: center;
+}
+
+.company {
+    color: var(--textHighlight);
 }
 
 .job {
@@ -251,6 +247,10 @@ hr {
     font-weight: 700;
 }
 
+li {
+    max-width: 900px;
+}
+
 .date-range {
     line-height: 0.5;
 }
@@ -259,28 +259,9 @@ hr {
     margin-top: 30px;
     max-width: 800px;
 }
-
-/* ----------------------------------------------------------------- */
-
-/* Section Resume */
-#resume .container-fluid {
-    max-width: 900px;
-}
-
-#resume .section-title {
-    text-align: center;
-}
-
-.company {
-    color: var(--textHighlight);
-}
 /* ----------------------------------------------------------------- */
 
 /* Projects section */
-#projects .container-fluid {
-    max-width: var(--maxContainerWideWidth);
-}
-
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -290,8 +271,9 @@ hr {
 }
 
 .card {
-    background-color: var(--textHighlight);
+    background-color: gray;
     font-size: var(--fz-md);
+    height: 350px;
     text-align: center;
     transition: all 0.4s ease-in-out;  /* smooth transition */
 }
@@ -299,7 +281,41 @@ hr {
 .card:hover {
     -ms-transform: scal(1.05);
     transform: scale(1.05);
-} 
+}
+
+.project-icon {
+    font-size: 30px;
+}
+
+.project-icon:hover {
+    color: red;
+}
+
+.card-title-bar {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    padding-bottom: 50px;
+}
+
+.card-title-bar > i:nth-child(3) {
+    margin-left: auto;
+}
+
+.card-title {
+    font-size: 30px;
+}
+
+p.card-desc {
+    font-size: var(--fz-xs);
+}
+
+p.card-tech {
+    font-size: var(--fz-xs);
+    font-style: italic;
+}
+
+
 /* ----------------------------------------------------------------- */
 
 /* Footer */
@@ -347,7 +363,6 @@ Extra-large size device: 1200px and more */
 
 @media screen and (max-width: 768px) {
     :root {
-        
         --fz-xxs: 12px;
         --fz-xs: 13px;
         --fz-sm: 14px;
@@ -391,10 +406,6 @@ Extra-large size device: 1200px and more */
         display: none;
     }
 
-    .container-fluid {
-        padding: 60px 0;
-    }
-
     .section-narrow, .section-wide {
         padding-left: 5%;
         padding-right: 5%;
@@ -414,8 +425,13 @@ Extra-large size device: 1200px and more */
     #intro h1 {
         font-size: 14px;
     }
+    
     #intro h2, h3 {
         font-size: 30px;
+    }
+
+    #intro br {
+        display: none;
     }
 
     .aboutme-grid {
@@ -424,6 +440,7 @@ Extra-large size device: 1200px and more */
 
     .aboutme-right {
         text-align: center;
+        width: auto;
     }
     
     .headshot {
@@ -438,10 +455,6 @@ Extra-large size device: 1200px and more */
         display: block; /* grids become blocks in mobile so elements are stacked */
     }
 
-    .skills-left-side {
-        margin-bottom: var(--marginSubSection);
-    }
-
     .job {
         padding-bottom: var(--marginParagraph);
     }
@@ -453,6 +466,10 @@ Extra-large size device: 1200px and more */
     /* Projects */
     .projects-grid {
         display: block;
+    }
+
+    .card {
+        margin-bottom: 30px;
     }
 
     /* Footer */
