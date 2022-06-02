@@ -16,8 +16,8 @@
     --marginSection: 60px;
     --marginSubSection: 40px;
     --marginParagraph: 15px;
-    --containerNarrow: 900px;
-    --containerWide: 1200px;
+    --containerNarrow: 800px;
+    --containerWide: 1000px;
     --maxParagraphWidth: 768px;
 }
 
@@ -245,10 +245,6 @@ hr {
 .job-title {
     line-height: 1;
     font-weight: 700;
-}
-
-li {
-    max-width: 900px;
 }
 
 .date-range {
