@@ -238,9 +238,6 @@ p {
 /* ----------------------------------------------------------------- */
 
 /* Section Resume */
-#resume .container-fluid {
-    max-width: var(--containerWide);
-}
 
 #resume .section-title {
     text-align: center;
