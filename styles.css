@@ -48,6 +48,10 @@ hr {
     margin-top: 100px;
     width: 50%;
 }
+
+p {
+    font-size: var(--fz-md);
+}
 /* ----------------------------------------------------------------- */
 
 /* Fixed items */
@@ -159,6 +163,9 @@ hr {
 .intro-quote {
     color: var(--textHighlight); 
 }
+.intro-text {
+    padding-top: 30px;
+}
 
 #intro h1 {
     font-size: 20px;
@@ -166,6 +173,11 @@ hr {
 
 #intro h2, h3 {
     font-size: 50px;
+}
+
+#intro p {
+    font-size: var(--fz-md);
+    line-height: 2;
 }
 
 /* ----------------------------------------------------------------- */
@@ -227,7 +239,7 @@ hr {
 
 /* Section Resume */
 #resume .container-fluid {
-    max-width: var(--containerNarrow);
+    max-width: var(--containerWide);
 }
 
 #resume .section-title {
@@ -374,7 +386,7 @@ Extra-large size device: 1200px and more */
         --maxParagraphWidth: 768px;
     }
 
-    .body {
+    body {
         font-size: var(--fz-xs);
     }
 
@@ -418,6 +430,10 @@ Extra-large size device: 1200px and more */
         margin-left: 20px;
     }
 
+    .intro-first-block {
+        margin-top: 10vh;
+    }
+
     #intro h1 {
         font-size: 14px;
     }
@@ -426,8 +442,13 @@ Extra-large size device: 1200px and more */
         font-size: 30px;
     }
 
-    #intro br {
-        display: none;
+    .intro-text {
+        padding-top: 0px;
+    }
+
+    #intro p {
+        font-size: var(--fz-xs);
+        line-height: 1.5;
     }
 
     .aboutme-grid {
